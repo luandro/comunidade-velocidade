@@ -5,6 +5,8 @@ const http = require('http')
 const url = require('url')
 const fs = require('fs')
 
+console.log('Connecting to Mongodb ', process.env.MONGO_URL,  process.env.MONGO_DB_USER, process.env.MONGO_DB_PASSWORD)
+
 mongoose.connect(process.env.MONGO_URL, {
   auth: {
     user: process.env.MONGO_DB_USER,
