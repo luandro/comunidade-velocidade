@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const speedTest = require('speedtest-net')
 const schedule = require('node-schedule')
 const mongoose = require('mongoose')
@@ -67,6 +69,7 @@ var j = schedule.scheduleJob({start: startTime, rule: '*/5 * * * *'}, () => {
 })
 
 http.createServer( (req, res) => {
+  console.log('Got req ', req.headers)
   Check.find((err, checks) => {
     if (err) return console.error(err)
     res.writeHead(200, {'Content-Type': 'application/json'})
